@@ -297,8 +297,12 @@ svg {
 }
 
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 600;
+  width: 100%;
   background: #090f1e;
 }
 .header__wrapper {
@@ -330,6 +334,38 @@ svg {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.header__btn {
+  display: block;
+  margin-left: auto;
+  padding: 6px 12px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  text-align: center;
+  color: #FFFFFF;
+  background: #18c389;
+  border: none;
+  border-radius: 10px;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.header__btn:focus {
+  outline: none;
+}
+.header__btn:hover {
+  color: #FFFFFF;
+}
+@media screen and (max-width: 767px) {
+  .header__btn {
+    display: none;
+  }
+}
+.header__btn + .header__nav {
+  margin-left: 8px;
 }
 .header__nav {
   margin-left: auto;
@@ -446,7 +482,7 @@ svg {
   display: block;
   width: 28px;
   height: 2px;
-  background: #000000;
+  background: #FFFFFF;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
@@ -632,7 +668,8 @@ svg {
   overflow-y: auto;
   max-height: 100dvh;
   width: 100%;
-  background: #FFFFFF;
+  color: #FFFFFF;
+  background: #090f1e;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -666,7 +703,7 @@ svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 72px 0 10px;
+  padding: 72px 0 16px;
   opacity: 0;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
@@ -675,6 +712,28 @@ svg {
   .menu__nav {
     width: 100%;
   }
+}
+.menu__btn {
+  display: block;
+  margin: 10px 20px 0;
+  padding: 6px 12px;
+  width: calc(100% - 40px);
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  text-align: center;
+  color: #FFFFFF;
+  background: #18c389;
+  border: none;
+  border-radius: 10px;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.menu__btn:focus {
+  outline: none;
+}
+.menu__btn:hover {
+  color: #FFFFFF;
 }
 
 .scroll-disabled {
@@ -693,7 +752,13 @@ svg {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-top: 50px;
   min-height: 100vh;
+}
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding-top: 62px;
+  }
 }
 .wrapper__content {
   -webkit-box-flex: 1;
@@ -924,12 +989,14 @@ svg {
   }
 }
 
-.home {
+.chatgpt-home {
+  position: relative;
+  z-index: 1;
   padding: 28px 0;
   color: #FFFFFF;
   background: #151c30;
 }
-.home__heading {
+.chatgpt-home__heading {
   display: block;
   margin: 0 auto 26px;
   width: -webkit-fit-content;
@@ -940,7 +1007,7 @@ svg {
   text-align: center;
   color: #FFFFFF;
 }
-.home__wrapper {
+.chatgpt-home__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -949,20 +1016,20 @@ svg {
           justify-content: space-between;
 }
 @media screen and (max-width: 1023px) {
-  .home__wrapper {
+  .chatgpt-home__wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
 }
-.home__left {
+.chatgpt-home__left {
   margin-right: 24px;
   max-width: 407px;
   min-width: 407px;
 }
 @media screen and (max-width: 1023px) {
-  .home__left {
+  .chatgpt-home__left {
     margin-right: 0;
     margin-bottom: 25px;
     max-width: none;
@@ -970,21 +1037,21 @@ svg {
     width: 100%;
   }
 }
-.home__right {
+.chatgpt-home__right {
   max-width: calc(100% - 407px - 24px);
   width: 100%;
 }
 @media screen and (max-width: 1023px) {
-  .home__right {
+  .chatgpt-home__right {
     max-width: none;
   }
 }
-.home__img {
+.chatgpt-home__img {
   display: block;
   width: 100%;
   height: auto;
 }
-.home__img img {
+.chatgpt-home__img img {
   display: block;
   width: 100%;
   height: 100%;
@@ -992,11 +1059,11 @@ svg {
      object-fit: contain;
 }
 @media screen and (max-width: 1023px) {
-  .home__img {
+  .chatgpt-home__img {
     margin: 0 auto;
   }
 }
-.home__controls {
+.chatgpt-home__controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1008,12 +1075,12 @@ svg {
   width: -moz-fit-content;
   width: fit-content;
 }
-.home__control {
+.chatgpt-home__control {
   display: block;
   width: auto;
   height: 50px;
 }
-.home__control img {
+.chatgpt-home__control img {
   display: block;
   max-height: 100%;
   width: 100%;
@@ -1021,10 +1088,10 @@ svg {
   -o-object-fit: contain;
      object-fit: contain;
 }
-.home__control + .home__control {
+.chatgpt-home__control + .chatgpt-home__control {
   margin-left: 20px;
 }
-.home__description {
+.chatgpt-home__description {
   display: block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -1035,11 +1102,11 @@ svg {
   color: #e9edf7;
 }
 @media screen and (max-width: 1023px) {
-  .home__description {
+  .chatgpt-home__description {
     text-align: center;
   }
 }
-.home__btn {
+.chatgpt-home__btn {
   position: relative;
   z-index: 1;
   display: block;
@@ -1060,7 +1127,7 @@ svg {
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
-.home__btn::before {
+.chatgpt-home__btn::before {
   content: "";
   position: absolute;
   top: -8px;
@@ -1075,30 +1142,48 @@ svg {
   transition: all 0.25s ease-in-out;
   pointer-events: none;
 }
-.home__btn:focus {
+.chatgpt-home__btn:focus {
   outline: none;
 }
-.home__btn:hover {
+.chatgpt-home__btn:hover {
   color: #FFFFFF;
 }
 @media screen and (hover: hover) {
-  .home__btn:hover::before {
+  .chatgpt-home__btn:hover::before {
     border: 8px solid rgba(24, 195, 137, 0.6);
   }
 }
 @media screen and (max-width: 1023px) {
-  .home__btn {
+  .chatgpt-home__btn {
     margin-right: auto;
     margin-left: auto;
   }
 }
-.home__banner {
+.chatgpt-home__banner {
   display: block;
   margin-top: 50px;
   width: 100%;
   height: 180px;
 }
-.home__banner img {
+.chatgpt-home__banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.chatgpt-home__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.chatgpt-home__bg img {
   display: block;
   width: 100%;
   height: 100%;
@@ -1106,15 +1191,19 @@ svg {
      object-fit: cover;
 }
 
-.how-to__wrapper {
+.chatgpt-text__content {
+  width: 100%;
+}
+
+.chatgpt-how-to__wrapper {
   counter-reset: how-to-counter;
 }
-.how-to__item {
+.chatgpt-how-to__item {
   position: relative;
   z-index: 1;
   width: 50%;
 }
-.how-to__item::before {
+.chatgpt-how-to__item::before {
   content: "";
   counter-increment: how-to-counter;
   content: counter(how-to-counter);
@@ -1141,7 +1230,7 @@ svg {
   background: #18c389;
   border-radius: 20px;
 }
-.how-to__item:not(:last-child)::after {
+.chatgpt-how-to__item:not(:last-child)::after {
   content: "";
   position: absolute;
   top: 66px;
@@ -1152,38 +1241,38 @@ svg {
   border-left: 4px dashed #8ecbb6;
 }
 @media screen and (min-width: 768px) {
-  .how-to__item:nth-child(odd)::before {
+  .chatgpt-how-to__item:nth-child(odd)::before {
     right: -27px;
   }
-  .how-to__item:nth-child(odd)::after {
+  .chatgpt-how-to__item:nth-child(odd)::after {
     right: -2px;
   }
-  .how-to__item:nth-child(odd) .how-to__title {
+  .chatgpt-how-to__item:nth-child(odd) .chatgpt-how-to__title {
     margin-left: auto;
     text-align: right;
   }
-  .how-to__item:nth-child(odd) .how-to__description {
+  .chatgpt-how-to__item:nth-child(odd) .chatgpt-how-to__description {
     text-align: right;
   }
-  .how-to__item:nth-child(even) {
+  .chatgpt-how-to__item:nth-child(even) {
     margin-left: auto;
   }
-  .how-to__item:nth-child(even)::before {
+  .chatgpt-how-to__item:nth-child(even)::before {
     left: -26px;
   }
-  .how-to__item:nth-child(even)::after {
+  .chatgpt-how-to__item:nth-child(even)::after {
     left: -2px;
   }
-  .how-to__item:nth-child(even) .how-to__elem {
+  .chatgpt-how-to__item:nth-child(even) .chatgpt-how-to__elem {
     margin-left: auto;
   }
 }
 @media screen and (max-width: 767px) {
-  .how-to__item {
+  .chatgpt-how-to__item {
     padding-left: 60px;
     width: 100%;
   }
-  .how-to__item::before {
+  .chatgpt-how-to__item::before {
     left: 0;
     min-width: 44px;
     width: 44px;
@@ -1191,38 +1280,38 @@ svg {
     font-size: 26px;
     border-radius: 15px;
   }
-  .how-to__item::after {
+  .chatgpt-how-to__item::after {
     left: 20px;
   }
-  .how-to__item:not(:last-child)::after {
+  .chatgpt-how-to__item:not(:last-child)::after {
     height: calc(100% - 51px - 12px - 4px);
   }
 }
-.how-to__item + .how-to__item {
+.chatgpt-how-to__item + .chatgpt-how-to__item {
   margin-top: 10px;
 }
 @media screen and (max-width: 767px) {
-  .how-to__item + .how-to__item {
+  .chatgpt-how-to__item + .chatgpt-how-to__item {
     margin-top: 20px;
   }
 }
-.how-to__elem {
+.chatgpt-how-to__elem {
   padding-top: 12px;
   max-width: 440px;
   width: 100%;
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .how-to__elem {
+  .chatgpt-how-to__elem {
     max-width: 320px;
   }
 }
 @media screen and (max-width: 767px) {
-  .how-to__elem {
+  .chatgpt-how-to__elem {
     padding-top: 0;
     max-width: none;
   }
 }
-.how-to__title {
+.chatgpt-how-to__title {
   display: block;
   margin-bottom: 16px;
   width: -webkit-fit-content;
@@ -1233,22 +1322,22 @@ svg {
   color: #252a34;
 }
 @media screen and (max-width: 767px) {
-  .how-to__title {
+  .chatgpt-how-to__title {
     font-size: 20px;
   }
 }
-.how-to__content {
+.chatgpt-how-to__content {
   display: block;
   padding: 24px 20px;
   background: #eeebe3;
   border-radius: 15px;
 }
 @media screen and (max-width: 767px) {
-  .how-to__content {
+  .chatgpt-how-to__content {
     padding: 16px;
   }
 }
-.how-to__description {
+.chatgpt-how-to__description {
   display: block;
   font-size: 18px;
   font-weight: normal;
@@ -1256,11 +1345,11 @@ svg {
   color: #000000;
 }
 @media screen and (max-width: 767px) {
-  .how-to__description {
+  .chatgpt-how-to__description {
     font-size: 16px;
   }
 }
-.how-to__img {
+.chatgpt-how-to__img {
   display: block;
   overflow: hidden;
   margin-top: 10px;
@@ -1268,7 +1357,7 @@ svg {
   height: 261px;
   background: #FFFFFF;
 }
-.how-to__img img {
+.chatgpt-how-to__img img {
   display: block;
   max-height: 100%;
   width: 100%;
@@ -1277,12 +1366,12 @@ svg {
      object-fit: contain;
 }
 @media screen and (max-width: 767px) {
-  .how-to__img {
+  .chatgpt-how-to__img {
     height: 161px;
   }
 }
 
-.faq__item + .faq__item {
+.chatgpt-faq__item + .chatgpt-faq__item {
   margin-top: 24px;
 }
 
@@ -1394,7 +1483,7 @@ svg {
   }
 }
 
-.features__wrapper {
+.chatgpt-features__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1404,7 +1493,7 @@ svg {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-.features__item {
+.chatgpt-features__item {
   display: block;
   overflow: hidden;
   padding: 16px 20px 22px;
@@ -1414,36 +1503,36 @@ svg {
           filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.12));
 }
 @media screen and (min-width: 1024px) {
-  .features__item {
+  .chatgpt-features__item {
     width: calc(33.333333333% - 14.6666666667px);
   }
-  .features__item:nth-child(3n), .features__item:nth-child(3n-1) {
+  .chatgpt-features__item:nth-child(3n), .chatgpt-features__item:nth-child(3n-1) {
     margin-left: 22px;
   }
-  .features__item:nth-child(n+4) {
+  .chatgpt-features__item:nth-child(n+4) {
     margin-top: 22px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .features__item {
+  .chatgpt-features__item {
     width: calc(50% - 11px);
   }
-  .features__item:nth-child(2n) {
+  .chatgpt-features__item:nth-child(2n) {
     margin-left: 22px;
   }
-  .features__item:nth-child(n+3) {
+  .chatgpt-features__item:nth-child(n+3) {
     margin-top: 22px;
   }
 }
 @media screen and (max-width: 767px) {
-  .features__item {
+  .chatgpt-features__item {
     width: 100%;
   }
-  .features__item:nth-child(n+2) {
+  .chatgpt-features__item:nth-child(n+2) {
     margin-top: 22px;
   }
 }
-.features__img {
+.chatgpt-features__img {
   display: block;
   overflow: hidden;
   margin: 0 auto 12px;
@@ -1451,17 +1540,17 @@ svg {
   width: 130px;
   height: 130px;
 }
-.features__img img {
+.chatgpt-features__img img {
   display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.features__body {
+.chatgpt-features__body {
   text-align: center;
 }
-.features__title {
+.chatgpt-features__title {
   position: relative;
   z-index: 1;
   display: block;
@@ -1470,7 +1559,7 @@ svg {
   font-weight: bold;
   color: #252a34;
 }
-.features__description {
+.chatgpt-features__description {
   display: block;
   font-size: 16px;
   font-weight: normal;
@@ -1478,7 +1567,7 @@ svg {
   color: #4b5566;
 }
 
-.models__wrapper {
+.chatgpt-models__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1486,26 +1575,26 @@ svg {
       flex-wrap: wrap;
 }
 @media screen and (min-width: 768px) {
-  .models__item {
+  .chatgpt-models__item {
     width: calc(50% - 20px);
   }
-  .models__item:nth-child(2n) {
+  .chatgpt-models__item:nth-child(2n) {
     margin-left: 40px;
   }
-  .models__item:nth-child(n+3) {
+  .chatgpt-models__item:nth-child(n+3) {
     margin-top: 40px;
   }
 }
 @media screen and (max-width: 767px) {
-  .models__item {
+  .chatgpt-models__item {
     width: 100%;
   }
-  .models__item:nth-child(n+2) {
+  .chatgpt-models__item:nth-child(n+2) {
     margin-top: 20px;
   }
 }
 
-.models-card {
+.chatgpt-models-card {
   display: block;
   overflow: hidden;
   padding: 24px;
@@ -1514,7 +1603,7 @@ svg {
   -webkit-filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.12));
           filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.12));
 }
-.models-card__title {
+.chatgpt-models-card__title {
   display: block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -1523,14 +1612,14 @@ svg {
   font-weight: bold;
   color: #252a34;
 }
-.models-card__title sup {
+.chatgpt-models-card__title sup {
   font-size: 16px;
   font-weight: normal;
   line-height: 1;
   vertical-align: super;
   color: #18c389;
 }
-.models-card__description {
+.chatgpt-models-card__description {
   display: block;
   margin-top: 10px;
   width: -webkit-fit-content;
@@ -1541,7 +1630,7 @@ svg {
   line-height: 1.6666666667;
   color: #4b5566;
 }
-.models-card__btn {
+.chatgpt-models-card__btn {
   display: block;
   margin-top: 16px;
   padding: 12.5px 24px;
@@ -1559,33 +1648,33 @@ svg {
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
-.models-card__btn:focus {
+.chatgpt-models-card__btn:focus {
   outline: none;
 }
-.models-card__btn:hover {
+.chatgpt-models-card__btn:hover {
   color: #FFFFFF;
 }
 @media screen and (max-width: 767px) {
-  .models-card__btn {
+  .chatgpt-models-card__btn {
     padding: 15px 22px;
     font-size: 16px;
   }
 }
 
-.app {
+.chatgpt-app {
   margin-top: 70px;
   padding: 25px 0 20px;
   background: #d7f1e8;
 }
 @media screen and (max-width: 767px) {
-  .app {
+  .chatgpt-app {
     margin-top: 50px;
   }
 }
-.app__wrapper {
+.chatgpt-app__wrapper {
   text-align: center;
 }
-.app__btn {
+.chatgpt-app__btn {
   position: relative;
   z-index: 1;
   display: block;
@@ -1606,7 +1695,7 @@ svg {
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
-.app__btn::before {
+.chatgpt-app__btn::before {
   content: "";
   position: absolute;
   top: -8px;
@@ -1621,18 +1710,18 @@ svg {
   transition: all 0.25s ease-in-out;
   pointer-events: none;
 }
-.app__btn:focus {
+.chatgpt-app__btn:focus {
   outline: none;
 }
-.app__btn:hover {
+.chatgpt-app__btn:hover {
   color: #FFFFFF;
 }
 @media screen and (hover: hover) {
-  .app__btn:hover::before {
+  .chatgpt-app__btn:hover::before {
     border: 8px solid rgba(24, 195, 137, 0.6);
   }
 }
-.app__help {
+.chatgpt-app__help {
   display: block;
   margin: 18px auto 12px;
   width: -webkit-fit-content;
@@ -1642,7 +1731,7 @@ svg {
   font-weight: normal;
   color: #4f6b62;
 }
-.app__controls {
+.chatgpt-app__controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1654,12 +1743,12 @@ svg {
   width: -moz-fit-content;
   width: fit-content;
 }
-.app__control {
+.chatgpt-app__control {
   display: block;
   width: auto;
   height: 50px;
 }
-.app__control img {
+.chatgpt-app__control img {
   display: block;
   max-height: 100%;
   width: 100%;
@@ -1667,27 +1756,27 @@ svg {
   -o-object-fit: contain;
      object-fit: contain;
 }
-.app__control + .app__control {
+.chatgpt-app__control + .chatgpt-app__control {
   margin-left: 20px;
 }
 
-.rating__select {
+.chatgpt-rating__select {
   margin: 0 auto 10px;
 }
-.rating__group {
+.chatgpt-rating__group {
   margin: 0 auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
 }
-.rating__value {
+.chatgpt-rating__value {
   display: block;
   font-size: 24px;
   font-weight: bold;
   color: #252a34;
 }
-.rating__help {
+.chatgpt-rating__help {
   display: block;
   margin-top: 1px;
   font-size: 12px;
@@ -1695,7 +1784,7 @@ svg {
   color: #8692a4;
 }
 
-.rating-select {
+.chatgpt-rating-select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1713,22 +1802,22 @@ svg {
   width: -moz-fit-content;
   width: fit-content;
 }
-.rating-select__input {
+.chatgpt-rating-select__input {
   display: none;
 }
-.rating-select__input:hover ~ .rating-select__label::before {
+.chatgpt-rating-select__input:hover ~ .chatgpt-rating-select__label::before {
   opacity: 0;
 }
-.rating-select__input:hover ~ .rating-select__label::after {
+.chatgpt-rating-select__input:hover ~ .chatgpt-rating-select__label::after {
   opacity: 1;
 }
-.rating-select__input:checked ~ .rating-select__label::before {
+.chatgpt-rating-select__input:checked ~ .chatgpt-rating-select__label::before {
   opacity: 0;
 }
-.rating-select__input:checked ~ .rating-select__label::after {
+.chatgpt-rating-select__input:checked ~ .chatgpt-rating-select__label::after {
   opacity: 1;
 }
-.rating-select__label {
+.chatgpt-rating-select__label {
   position: relative;
   z-index: 1;
   display: block;
@@ -1739,7 +1828,7 @@ svg {
   height: 40px;
   cursor: pointer;
 }
-.rating-select__label::before {
+.chatgpt-rating-select__label::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -1759,7 +1848,7 @@ svg {
   -webkit-transition: opacity 0.15s ease;
   transition: opacity 0.15s ease;
 }
-.rating-select__label::after {
+.chatgpt-rating-select__label::after {
   content: "";
   position: absolute;
   top: 50%;
